@@ -5,7 +5,7 @@ Build a simple autocomplete application based on a [Trie](https://en.wikipedia.o
 ### Requirements
 Fork this repository to implement your solution. The functionality you provide must adhere to the following interface:
 * `add(word)` => adds *word* to the trie, returning `true` if the word was successfully added and `false` if the word was already present.
-* `contains(word)` => returns `true` if the trie contains *word*, or `false` otherwise.
+* `contains(word)` => returns `true` if the trie contains *word* and `false` if it does not.
 * `search(prefix)` => returns the list of all words in the trie that begin with *prefix*. 
  
 ### Acceptance Criteria
