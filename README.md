@@ -14,4 +14,4 @@ Create an implementation of a Trie, implementing the algorithms required to supp
 * Include instructions as to how to run your solution
 * A User Interface is not required for successful completion of this task (no penalty if you include one, however)
 
-Fork this repository to implement your solution. When you are finished, submit a pull request containing your solution. Be sure that your solution contains instructions on how to execute the above commands.
+Fork this repository to implement your solution. When you are finished, submit a pull request containing your Trie implementation and any supporting code. 
