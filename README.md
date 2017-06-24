@@ -9,6 +9,7 @@ Create an implementation of a Trie, implementing the algorithms required to supp
 * `search(prefix)` => returns the list of all words in the trie that begin with *prefix*. 
  
 ### Guidelines
+* The trie implementation only needs to support lowercase words
 * Clever solutions are welcome and encouraged
 * Implement in a language of your choice
 * Include instructions as to how to run your solution
