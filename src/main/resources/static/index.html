@@ -1,0 +1,144 @@
+<html>
+<head>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 54px;
+        }
+        @media (min-width: 992px) {
+            body {
+                padding-top: 56px;
+            }
+        }
+    </style>
+
+</head>
+<header><title>TrieThisChallenge</title></header>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand"></a>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="mt-5">Trie This Challenge</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" style="height:50px;"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+
+                </div>
+                <div class="col-sm-4 text-center">
+                    <label>Add word to trie</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+
+                </div>
+                <div class="col-sm-4 text-center">
+                    <input type="text" class="form-control" id="wordInput">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12" style="height:5px;"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 text-center">
+                    <button type="button" class="btn btn-info" id="addButton">Add it!</button>
+                </div>
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="col-xs-12" style="height:50px;"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+
+                </div>
+                <div class="col-sm-4 text-center">
+                    <label>Now find the words</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+
+                </div>
+                <div class="col-sm-4 text-center">
+                    <input type="text" class="form-control" id="searchInput">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" style="height:5px;"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 text-center">
+                    <button type="button" class="btn btn-info" id="findButton">Find them!</button>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12" style="height:50px;"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 text-center" id=searchResults>
+                    <!--results-->
+                </div>
+
+            </div>
+    </div>
+
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/popper/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            $("#addButton").click(function(){
+                var newWord = $('#wordInput').val();
+                var newWordArr = [newWord];
+                $.ajax({
+                    type: "POST",
+                    url: "/trie/add",
+                    data: JSON.stringify(newWordArr),
+                    contentType:"application/json; charset=utf-8",
+                    dataType: "json"
+                });
+                $('#wordInput').val("");
+            });
+
+            $("#findButton").click(function(){
+                var newSearch = $('#searchInput').val();
+                $.ajax({
+                    type: "GET",
+                    url: "/trie/find?search="+newSearch,
+                    success : function(result){
+                        $('#searchResults').text(result);
+                    }
+                });
+
+            });
+        });
+
+    </script>
+</body>
+</html>
